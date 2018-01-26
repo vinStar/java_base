@@ -9,7 +9,7 @@ class A {
 
     int x ;
 
-    //num 1
+    //block num 1
     {
         x = 1;
         System.out.println("block num 1, x is " + x);
@@ -20,7 +20,7 @@ class A {
         System.out.println("constructor x is " + x);
     }
 
-    //num 2
+    //block num 2
     {
         x = 2;
         System.out.println("block num 2, x is " + x);

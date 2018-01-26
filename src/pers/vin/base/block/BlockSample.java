@@ -8,7 +8,7 @@ package pers.vin.base.block;
 class AAA {
     int x;
 
-    //num 1
+    //block num 1
     {
         x = 1;
         System.out.println("non-static block num 1 x is " + x);
@@ -20,20 +20,21 @@ class AAA {
 
     }
 
-    //num 2
+    //block num 2
     {
         x = 2;
         System.out.println("non-static block num 2 x is " + x);
     }
 
 
-    // The static block only gets called once, no matter how many objects of that type you create
+    // The static block only gets called once,when the class itself is initialized,
+    // no matter how many objects of that type you create
     static {
         System.out.println("static block");
     }
 
 
-    //Gets called every time an instance of the Parent class is constructed.
+    //Gets called every time an instance of the  class is constructed.
     //the non-static block is actually copied by the Java compiler into every constructor the class has (source).
     //So it is still the constructor's job to initialize fields.
     //to understand "actually " , find the result in the .class file of A.class
@@ -54,17 +55,8 @@ public class BlockSample {
 
         System.out.println(" \n====second time instantiate AAA ====" + newLine);
         new AAA();
+
     }
 }
 
-//result
 
-// ====first time instantiate A====
-//
-// static block
-// non-static block
-//
-// ====second time instantiate A====
-//
-// non-static block
-//

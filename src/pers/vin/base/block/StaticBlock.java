@@ -14,15 +14,19 @@ class AA {
 
     static int x = 1;
 
-    //num 1
+    //block num 1
     static {
         System.out.println("static block num 1 , x is " + x);
     }
 
-    //num 2
+    //block num 2
     static {
-        x=2;
+        x = 2;
         System.out.println("static block num 2 , x is " + x);
+    }
+
+    static void print() {
+        System.out.println("static method");
     }
 }
 
@@ -32,9 +36,13 @@ public class StaticBlock {
     public static void main(String[] args) {
         String newLine = System.getProperty("line.separator");
 
-        System.out.println("====first time instantiate ====" + newLine);
-        new AA();
+        System.out.println("====first time class init ====" + newLine);
+        //first time class init
+        AA.print();
 
+        System.out.println("====first time instantiate ====" + newLine);
+        //second time class init
+        new AA();
         System.out.println(" \n====second time instantiate ====" + newLine);
         new AA();
     }
