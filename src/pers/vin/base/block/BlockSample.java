@@ -7,9 +7,11 @@ package pers.vin.base.block;
 
 class AAA {
     int x;
+    boolean enable=false;
 
     //block num 1
     {
+        assert enable = true;
         x = 1;
         System.out.println("non-static block num 1 x is " + x);
     }

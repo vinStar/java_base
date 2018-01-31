@@ -35,10 +35,10 @@ public class Non_staticBlock {
 
         String newLine = System.getProperty("line.separator");
 
-        System.out.println("====first time instantiate ====" + newLine);
+        System.out.println("====first time instantiate class ====" + newLine);
         new A();
 
-        System.out.println(" \n====second time instantiate ====" + newLine);
+        System.out.println(" \n====second time instantiate class ====" + newLine);
         new A();
     }
 

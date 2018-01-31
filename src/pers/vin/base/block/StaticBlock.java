@@ -33,15 +33,17 @@ class AA {
 
 public class StaticBlock {
 
+    static {
+        System.out.println("==== first ====");
+    }
+
     public static void main(String[] args) {
         String newLine = System.getProperty("line.separator");
 
-        System.out.println("====first time class init ====" + newLine);
-        //first time class init
+        System.out.println("==== class init ====" + newLine);
         AA.print();
 
         System.out.println("====first time instantiate ====" + newLine);
-        //second time class init
         new AA();
         System.out.println(" \n====second time instantiate ====" + newLine);
         new AA();
