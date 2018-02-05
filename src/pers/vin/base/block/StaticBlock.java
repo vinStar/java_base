@@ -40,12 +40,12 @@ public class StaticBlock {
     public static void main(String[] args) {
         String newLine = System.getProperty("line.separator");
 
-        System.out.println("==== class init ====" + newLine);
+        System.out.println("====AA class init ====" + newLine);
         AA.print();
 
-        System.out.println("====first time instantiate ====" + newLine);
+        System.out.println("====first time instantiate AA====" + newLine);
         new AA();
-        System.out.println(" \n====second time instantiate ====" + newLine);
+        System.out.println(" \n====second time instantiate AA====" + newLine);
         new AA();
     }
 }
