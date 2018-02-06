@@ -10,6 +10,8 @@ import java.util.Map;
 public class Map_LinkedHashMap {
     public static void main(String[] args) {
 
+        // 1. compare with hashMap the iterate result is ordered
+
         Map<String, String> lhmMap = new LinkedHashMap<>();
         lhmMap.put("name", "vin");
         lhmMap.put("name", "vin");// pre value replace
