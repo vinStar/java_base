@@ -3,14 +3,14 @@ package pers.vin.base.dataStructure;
 import java.util.Arrays;
 
 /**
- * Created by liutong on 05/02/2018.
+ * Created by vin on 05/02/2018.
  */
 public class SortSample {
 
     static void bubbleSort(int[] arr) {
-
-        // 1
-        // 3
+        // 原理 the principle
+        // 1 like bubble in water that will float in top
+        //
         // 1
         // 2
         int temp;
@@ -51,18 +51,17 @@ public class SortSample {
         i = low;
         j = hight;
         index = a[i]; // 用子表的第一个记录做基准
-        int loop=0;
+        int loop = 0;
         while (i < j) { // 从表的两端交替向中间扫描
             while (i < j && a[j] >= index) {
                 j--;
 
             }
-            System.out.println("i is"+i);
-            System.out.println("j is"+j);
+
             if (i < j) {
-                System.out.println(Arrays.toString(a));
+
                 a[i++] = a[j];// 用比基准小的记录替换低位记录
-                System.out.println(Arrays.toString(a));
+
             }
 
 
@@ -70,19 +69,19 @@ public class SortSample {
                 i++;
 
             }
-            System.out.println("i is"+i);
-            System.out.println("j is"+j);
+
             if (i < j) // 用比基准大的记录替换高位记录
             {
                 a[j--] = a[i];
             }
-            System.out.println(Arrays.toString(a));
-           loop++;
-            if(loop==1){
 
-                System.out.println("loop "+ Arrays.toString(a));
-            }
+            System.out.println("i is " + i);
+            System.out.println("j is " + j);
+            loop++;
+            System.out.println(loop+" loop " + Arrays.toString(a));
+
         }
+        System.out.println("===");
 
         a[i] = index;// 将基准数值替换回 a[i]
         sort(a, low, i - 1); // 对低子表进行递归排序
@@ -107,9 +106,9 @@ public class SortSample {
         System.out.println(Arrays.toString(arr2));
 
         int a[] = {49, 38, 65, 97, 76, 13, 27, 49};
-        int i=0;
+        int i = 0;
         System.out.println(a[i]);
-//        quickSort(a);
-//        System.out.println(Arrays.toString(a));
+        quickSort(a);
+        System.out.println(Arrays.toString(a));
     }
 }
