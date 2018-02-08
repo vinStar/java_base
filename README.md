@@ -27,5 +27,9 @@
      - java implement queue
 
 ## algorithm
+- sort
+   - bubble sort
+   - choose sort
+   - quick sort
 
 
