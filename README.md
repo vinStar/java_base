@@ -1,7 +1,10 @@
 # java_base
  pers sample
 ## java base 
- - java block : static block , constroctor block 
+ - java block 
+   - static block 
+   - non-static block
+   - constroctor block 
  - class load
 ## data structure 
  - enum
