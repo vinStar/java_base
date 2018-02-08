@@ -6,6 +6,7 @@
    - non-static block  
    - constroctor block   
  - class load
+   - class load order
 ## data structure 
  - enum
  - array
@@ -22,6 +23,8 @@
    - Set
      - HashSet
      - TreeSet
+   - Queue
+     - java implement queue
 
 ## algorithm
 
