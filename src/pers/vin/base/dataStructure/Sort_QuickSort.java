@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * Created by vin on 05/02/2018.
  */
-public class SortSample {
+public class Sort_QuickSort {
 
     static void bubbleSort(int[] arr) {
         // 原理 the principle

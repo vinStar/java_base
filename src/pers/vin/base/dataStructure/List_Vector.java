@@ -15,6 +15,8 @@ public class List_Vector {
         // 1. thread save (synchronized) but didn't recommend
         // 2. can use synchronized wrap ,
         // List safeList = Collections.synchronizedList(new ArrayList());
+        // or
+        // ConcurrentHashMap  ConcurrentLinkedQueue  CopyOnWriteArrayList
         List<Integer> listVector = new Vector<>();
         for (int i = 0; i < 10; i++) {
             listVector.add(i + 1);

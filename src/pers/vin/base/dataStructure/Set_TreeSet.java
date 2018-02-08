@@ -13,18 +13,21 @@ public class Set_TreeSet {
     public static void main(String[] args) {
 
 
-        System.out.println("HashTree");
-        // 1. not allow repeat value
+        System.out.println("TreeSet");
+        // 1. not allow repeat value but will replaced
         // 2. ordered by some regular
         // 3. not contain null element
 
-        // 4. base  red black tree ,the result u get sorted
+        // 4. base  red black tree ,the result u get is sorted
 
 
         Set<Integer> treeSet = new TreeSet<>();
         for (int i = 0; i < 10; i++) {
             treeSet.add(i + 1);
         }
+
+        treeSet.add(1);
+        treeSet.add(1);
 
         for (int a : treeSet) {
             //treeSet.remove(a);// like array occur the concurrent modification exception

@@ -25,7 +25,6 @@ public class Map_HashMap {
         hashMap.put(null, null);//allow
         hashMap.put("lastName", null);//allow
 
-
         Iterator iterator = hashMap.keySet().iterator();
 
         System.out.println("=== iterate ===");

@@ -14,16 +14,24 @@ public class Map_HashTable {
 
         // 0. extends Dictionary
         // 1. thread safe (synchronized) like Arrays Vector
-        // 2. not allow null  key or value
+        // 2. not allow null  key or value --occur nullPointerException
+        // source code :
+        //    if (value == null) {
+        //        throw new NullPointerException();
+        //    }
+        //
         // 3. find the source code
         // public synchronized V put(K key, V value)
         // hashTable support synchronized , so when put will slow
         Map<String, String> hashTable = new Hashtable<>();
-        hashTable.put("a","aa");
-        hashTable.put("b","bb");
+        //hashTable.put(null,"null");// NullPointerException
+        //hashTable.put(null,"null");// NullPointerException
+        // hashTable.put("null key", null); // NullPointerException
+        hashTable.put("a", "aa");
+        hashTable.put("b", "bb");
         hashTable.put("name", "vin");
         hashTable.put("name", "vin");//if the key exists , the pre value will be replaced
-        hashTable.put("fistName","vin");
+        hashTable.put("fistName", "vin");
         hashTable.put("name", "grace");
 
         //hashTable.put(null,null);
@@ -32,16 +40,16 @@ public class Map_HashTable {
         // otherwise will occur java.lang.NullPointerException
 
 
-        for(String a:hashTable.keySet()){
+        for (String a : hashTable.keySet()) {
             System.out.println(hashTable.get(a));
         }
 
-        for(String a:hashTable.keySet()){
+        for (String a : hashTable.keySet()) {
             //hashTable.remove(a);// like arrayList occur ConcurrentModificationException
         }
 
-        System.out.println("is contain value : "+hashTable.containsValue("vin")); //false
-        System.out.println("size : "+hashTable.size());
+        System.out.println("is contain value : " + hashTable.containsValue("vin")); //false
+        System.out.println("size : " + hashTable.size());
         System.out.println(hashTable);
 
     }

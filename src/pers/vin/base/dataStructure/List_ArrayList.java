@@ -12,6 +12,8 @@ public class List_ArrayList {
 
     public static void main(String[] args) {
 
+        // 1. not permit loop remove
+
         System.out.println("=== ArrayList  maybe occur exception when update or insert ===");
         List<Integer> list = new ArrayList<Integer>();
         List<Integer> list2 = new ArrayList<Integer>();
@@ -28,7 +30,7 @@ public class List_ArrayList {
         // 1. list will invoke iterator
         // 2. iterator invoke hasNext method will check the modCount
         for (int a : list) {
-            //list.remove(a); //occur exception
+           // list.remove(a); //occur exception
             System.out.println(a);
         }
         System.out.println("=== for :  end ===");

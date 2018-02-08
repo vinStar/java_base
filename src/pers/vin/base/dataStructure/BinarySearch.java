@@ -1,12 +1,12 @@
 package pers.vin.base.dataStructure;
 
 /**
- * Created by liutong on 05/02/2018.
+ * Created by vin on 05/02/2018.
  */
 public class BinarySearch {
 
     // 1  2  3
-    //wile implement binary search
+    //with while implement binary search
     static int find(int[] arr, int value) {
         int lowIndex = 0;
         int highIndex = arr.length - 1;
@@ -35,7 +35,7 @@ public class BinarySearch {
 
     }
 
-    // recursive implement binary search
+    // with recursive implement binary search
     private static int recursiveFind(int[] arr,int start,int end,int searchKey){
         if (start <= end) {
             // 中间位置
