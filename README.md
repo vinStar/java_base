@@ -3,8 +3,8 @@
 ## java base 
  - java block 
    - static block  
-   - 'non-static' block  
-   - constroctor block   
+   - 'non-static' block  
+   - constroctor block   
  - class load
 ## data structure 
  - enum
