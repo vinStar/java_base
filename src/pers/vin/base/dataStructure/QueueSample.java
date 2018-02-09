@@ -25,7 +25,7 @@ public class QueueSample {
 // 6. 当队列只有一位元素时,队列头 队列尾 指向同一数组下标,同一元素.
 //    当初始第一个元素时,下标同为0 . 其他情况就是队列只有一个元素时,但各下标都有可能
 // 7. 当size=10的时候,不可再insert; 当size=0的时候,不可再remove
-// 8. 当rear=10,但队列为空时,rear继续从头开始
+// 8. 当rear=9,但队列为空时,rear继续从头开始(循环队列,不可插入为单项队列)
 
 
     public QueueSample() {
@@ -93,10 +93,20 @@ public class QueueSample {
     }
 
     Object peekFront() {
+
+        if (size <= 0) {
+            System.out.println("queue is empty!");
+            return null;
+        }
+
         return objQueue[front];
     }
 
     Object peekRear() {
+        if (size <= 0) {
+            System.out.println("queue is empty!");
+            return null;
+        }
         return objQueue[rear];
     }
 
@@ -130,7 +140,9 @@ public class QueueSample {
             queueSample.insert(i);
         }
 
-        queueSample.remove();queueSample.remove();queueSample.remove();
+        queueSample.remove();
+        queueSample.remove();
+        queueSample.remove();
 
         for (int i = 0; i < 10; i++) {
             queueSample.insert(i);
