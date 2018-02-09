@@ -13,7 +13,7 @@
  - collection
    - List
      - ArrayList
-     - LinkList  (implements queue)
+     - LinkList(implements queue)
      - Vector
    - Map
      - HashMap
