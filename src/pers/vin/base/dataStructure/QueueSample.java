@@ -1,7 +1,9 @@
 package pers.vin.base.dataStructure;
 
 
-import java.util.Arrays;
+import com.sun.jmx.remote.internal.ArrayQueue;
+
+import java.util.*;
 
 /**
  * Created by vin on 07/02/2018.
@@ -9,11 +11,9 @@ import java.util.Arrays;
 public class QueueSample {
 
 // thought and principle
+// 队列是一种特殊的线性表,它只允许在表的前端进行删除操作,而在表的后端进行插入操作
+// 队列是一种数据结果,他有两个基本操作:在队列尾部加入一个元素和从队列头部移除一个元素
 // 0. like a array , but FIFO (first in first out) can image people in a queue to buy movie tickets
-// 1. the first element in the queue is the front equals the rear
-// 2. insert, 尾部插入,插入后rear后移
-// 3. remove, when remove element from front the front move back and 原位置为空
-// 4. 尾部满后, 队列不满,尾部移动到队头没有占用的位置
 
 // step by step
 // 1. initial , the queue initialize front = 0 , rear = -1 , size=0
@@ -117,6 +117,13 @@ public class QueueSample {
 
     public static void main(String[] args) {
 
+        myQueue();
+
+        queueTest();
+
+    }
+
+    private static void myQueue() {
         String newLine = System.getProperty("line.separator");
 
         QueueSample queueSample = new QueueSample();
@@ -151,13 +158,49 @@ public class QueueSample {
         System.out.println("此时队列" + Arrays.toString(queueSample.objQueue));
 
         printIndex(queueSample);
-
     }
 
     private static void printIndex(QueueSample queueSample) {
         System.out.println("front : " + queueSample.front + "=== my queue front  : " + queueSample.peekFront());
         System.out.println("rear : " + queueSample.rear + "=== my queue rear  : " + queueSample.peekRear());
         System.out.println("my queue size : " + queueSample.getSize());
+    }
+
+
+    static void queueTest() {
+
+        Queue<String> queue = new LinkedList<String>();
+
+        //add()和remove()方法在失败的时候会抛出异常(不推荐)
+        //添加元素
+        queue.offer("a");
+        queue.offer("b");
+        queue.offer("c");
+
+        for (String q : queue) {
+            // queue.remove(); //ConcurrentModificationException the same as linkList
+        }
+
+        System.out.println("queue peek() : " + queue.peek());//when queue empty return null
+        System.out.println("queue peek() : " + queue.peek());
+        System.out.println("queue element() : " + queue.element());//when queue empty throw exception
+        System.out.println("queue element() : " + queue.element());
+
+
+        System.out.println("==== ArrayQueue ===");
+
+        ArrayQueue arrayQueue = new ArrayQueue(10);
+        arrayQueue.add("vin");
+        arrayQueue.add("ccc");
+
+        Iterator iterator = arrayQueue.iterator();
+        while (iterator.hasNext()) {
+            System.out.println("ArrayQueue iterator : " + iterator.next());
+        }
+
+        System.out.println(arrayQueue);
+
+
     }
 }
 

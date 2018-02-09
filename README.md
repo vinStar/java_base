@@ -12,8 +12,8 @@
  - array
  - collection
    - List
-     - ArrayList
-     - LinkList(implements queue)
+     - ArrayList  
+     - LinkList(implements queue)  
      - Vector
    - Map
      - HashMap
