@@ -33,48 +33,12 @@ public class Link_BaseLink {
     //双向链表
     //循环链表。
 
-    //step by step
-    // 1. 定义节点,他有两个属性 (指向下一节点的指针,存储数据元素) ,能有多个属性的就是类了.
-    // 4. 第一个节点如何插入? 定义一个空节点接收第一个node对象 怎么知道是第一个节点? 定义一个节点记录器.
-    // 硬给自己提问题....
-    // 5. 继续添加节点,修改firstNode指针指向第二个Node,第二个Node指针指向自己...节点记录器加1
-    // 6. 添加完了就是删除
+    //rewrite step by step  以面向对象,实例火车厢的方式来开始
+    //1. 定义车厢: 车厢+链接处(下一节(车厢)点指针 ) , 对于多个属性的载体,用类来承载
+    //2. 定义存储数据的属性,data Object 存储任意数据. 指针 下一节点(车厢)
+    //3. 对于节点的扩充,可提取数据+指针(get),可修改数据+指针(set) --
+    //4. 对于节点肯定需要有数据,可在构造函数实现带参数,数据传入
 
-
-    //打印链表所有节点
-    void print(Node node) {
-
-        if (node != null) {//条件
-            System.out.println(node.getData());
-            print(node.getNext());  //自己调用自己
-        }
-
-    }
-
-
-    public static void main(String[] args) {
-
-        Link_BaseLink linkBaseLink = new Link_BaseLink();
-        linkBaseLink.TestNode();
-    }
-
-    void TestNode() {
-
-        //定义几个节点
-        Node node0 = new Node("火车头");
-        Node node1 = new Node("第一节车厢");
-        Node node2 = new Node("第二节车厢");
-        Node node3 = new Node("第三节车厢");
-
-        //定义火车车厢(节点)之间的关联方式, 像火车车厢一样链接起来
-        node0.setNext(node1);
-        node1.setNext(node2);
-        node2.setNext(node3);
-
-        //查找数据 递归(调用自己+结束条件)
-        print(node0);
-
-    }
 
     // 火车 车厢
     // 保存数据,确认先后顺序,链接节点
@@ -108,6 +72,45 @@ public class Link_BaseLink {
         }
 
     }
+
+
+    //打印链表所有节点
+    void print(Node node) {
+
+        if (node != null) {//条件
+            System.out.println(node.getData());
+            print(node.getNext());  //自己调用自己
+        }
+
+    }
+
+
+      public static void main(String[] args) {
+
+        Link_BaseLink linkBaseLink = new Link_BaseLink();
+        linkBaseLink.TestNode();
+    }
+
+    //测试
+    void TestNode() {
+
+        //定义几个节点
+        Node node0 = new Node("火车头");
+        Node node1 = new Node("第一节车厢");
+        Node node2 = new Node("第二节车厢");
+        Node node3 = new Node("第三节车厢");
+
+        //定义火车车厢(节点)之间的关联方式, 像火车车厢一样链接起来
+        node0.setNext(node1);
+        node1.setNext(node2);
+        node2.setNext(node3);
+
+        //查找数据 递归(调用自己+结束条件)
+        print(node0);
+
+    }
+
+
 
 
 }

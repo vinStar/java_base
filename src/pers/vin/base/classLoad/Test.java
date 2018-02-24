@@ -38,10 +38,31 @@ class SingleTon {
 }
 
 public class Test {
+
+
+    static void test() {
+        int i = 1;
+        //错误实例
+//      test    int i;
+//        System.out.println(i);
+    }
+
+
     public static void main(String[] args) {
         SingleTon singleTon = SingleTon.getInstance();
         SingleTon.print();
         System.out.println("count1=" + singleTon.count1);
         System.out.println("count2=" + SingleTon.count2);
+
+
+        int num = 2147483647;
+        long temp = num + 2L;
+        System.out.println(temp);
+
+        num = 2147483647;
+        num += 2L;
+        System.out.println(num);
+        test();
+
     }
 }
