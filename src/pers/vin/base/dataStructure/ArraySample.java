@@ -31,8 +31,53 @@ public class ArraySample {
         //print the array elements
         System.out.println(Arrays.toString(intArrayTar));
 
+        transposeArray();
+    }
 
+    public static void transposeArray() {
+
+        int[][] data = new int[][]{{1, 2, 3, 4, 5}, {6, 7, 8, 9, 10}, {11, 12, 13, 14, 15}, {16, 17, 18, 19, 20}, {21, 22, 23, 24, 25}};
+
+        for (int x = 0; x < data.length; x++) {
+            for (int y = 0; y < data.length; y++) {
+
+                System.out.print(data[x][y] + " ");
+                if (data[x][y] < 10) {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
+
+
+        // 依次替换中轴一下y轴所有数据
+        // x=0 ,所有y轴数据
+        // x=1 ,所有y轴数据
+        // x=...
+        for (int x = 0; x < data.length; x++) {
+            for (int y = x; y < data.length; y++) {
+                if (x != y) {
+                    int temp = data[x][y];
+                    data[x][y] = data[y][x];
+                    data[y][x] = temp;
+                }
+            }
+        }
+
+        System.out.println("transpose :");
+
+        for (int x = 0; x < data.length; x++) {
+            for (int y = 0; y < data.length; y++) {
+                System.out.print(data[x][y] + " ");
+                if (data[x][y] < 10) {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
+        }
 
 
     }
+
+
 }
