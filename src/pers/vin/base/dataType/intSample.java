@@ -28,5 +28,10 @@ public class intSample {
         num += 2L;
         System.out.println(num);// result : 2147483647 ;num自动升级为long
 
+        // 没事别在前边加0
+        int tNum = 011;//8进制
+        System.out.println(tNum);//9 满8进1
+        tNum = 0x11;//16进制
+        System.out.println(tNum);//17 满16进1
     }
 }
