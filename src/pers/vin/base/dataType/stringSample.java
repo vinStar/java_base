@@ -1,0 +1,79 @@
+package pers.vin.base.dataType;
+
+/**
+ * Created by vin on 26/02/2018.
+ */
+public class stringSample {
+
+    public static void main(String[] args) {
+
+        int num1 = 10;
+        int num2 = 10;
+
+        System.out.println("num1 == num2                    : " + (num1 == num2));
+
+        String str1 = "hel";
+        String str2 = "hel";
+        String str3 = new String("hel");
+
+        System.out.println("str1 equals str2                 : " + str1.equals(str3));
+
+        System.out.println("str1.intern() == str2            : " + (str1.intern() == str2));
+        System.out.println("str1 == \"h\" + \"e\" + \"l\"    : " + (str1 == "h" + "e" + "l"));//true
+        System.out.println("str1 == \"hello\"                : " + (str1 == "hello"));//true
+        System.out.println("str2 intern                      : " + str2.intern());//hel
+
+        char[] char1 = new char[]{
+                'h', 'e', 'l'
+        };
+
+
+        System.out.println(str1 == str2);
+        System.out.println(str1 == str3);
+
+        System.out.println("string char[]                    :  " + (str1 == char1.toString()));
+
+        for (int i = 0; i < str1.length(); i++) {
+            System.out.println(str1.charAt(i));
+        }
+
+
+        // "hel" String 的匿名对象, 匿名对象可调用对象的所有方法
+        // 匿名对象必然保存在堆内存之中
+        System.out.println("\"hel\".equals(str1)             : " + "hel".equals(str1));
+
+        // 提醒用 字符串. equals 输入值 避免 nullPointerException
+        String strInput = null;
+        String strInput2 = "hel";
+
+        System.out.println("hel".equals(strInput2));// false
+        //--------------- 错误实例
+        //System.out.println(strInput.equals(str1)); // nullPointerException
+        //--------------
+        //part 1
+        //1. "==" is compare num value
+        //2. if "==" use to compare Object , then compare the Object's memory address's num value;
+        //   compare num value not Object's content
+        //3. compare Object's content with  equals()
+
+        //part 2
+        //1. "equals" is use to compare String Object's content
+
+        //part 3
+        //1. String.intern return 返回字符串对象的规范化表示形式。,  String will support a string pool
+        //2. if use == 分配一个或者不分配堆内存 ,
+        //   当 有多个（s、t） == "abc" ; 产生多个栈(内存地址值相同,用==比较的话为 true)指向同一堆内存
+        //               if and only if s.equals(t)
+        //                 so s==t is true (堆内存地址值相同)
+
+        //part 4
+        // "hel" 为 String 匿名对象 , 可调用 Stirng 对象的所有方法
+        //
+
+        //part 5
+        // 提醒用 字符串. equals 输入值; 反例: 输入值(strInput=null) strInput.equals  引发 nullPointerException
+        // "hel" 匿名对象永远不会为 null , 所以安全
+
+
+    }
+}

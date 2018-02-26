@@ -15,6 +15,7 @@ public class ArraySample {
         int[] intArraySou = new int[10];
         int[] intArrayTar = new int[10];
 
+
         Arrays.equals(intArraySou, intArrayTar);//compare two array element count and element equals
         System.out.println(Arrays.equals(intArraySou, intArrayTar));
         Arrays.fill(intArraySou, 1);// fill array with val 1
@@ -34,6 +35,7 @@ public class ArraySample {
         transposeArray();
     }
 
+    // 二维数组倒置
     public static void transposeArray() {
 
         int[][] data = new int[][]{{1, 2, 3, 4, 5}, {6, 7, 8, 9, 10}, {11, 12, 13, 14, 15}, {16, 17, 18, 19, 20}, {21, 22, 23, 24, 25}};
