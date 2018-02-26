@@ -67,7 +67,7 @@ public class stringSample {
         //                 so s==t is true (堆内存地址值相同)
 
         //part 4
-        // "hel" 为 String 匿名对象 , 可调用 Stirng 对象的所有方法
+        // "hel" 为 String 匿名对象 , 可调用 String 对象的所有方法
         //
 
         //part 5
