@@ -50,6 +50,16 @@ public class stringSample {
         //--------------- 错误实例
         //System.out.println(strInput.equals(str1)); // nullPointerException
         //--------------
+
+        //part 0
+        //1. String 类使用了一种共享设计模式，JVM维护的字符串对象池，可理解为对象池数组
+        // 面向对象（想象一个工具可能被A使用，B使用，。。而不用每个人都有这个工具，造成不必要的浪费）
+        //  == 分配一个或者不分配堆内存 ,第二个之后可共享堆内存
+        // "hel"== str1 // is true , 比较值!比较值!有对象的话就是对象的堆存地址值
+        //2. 两种创建字符串实例的区别
+        //a. 直接赋值：匿名对象，开辟一块堆内存空间，存储在对象池，可共享，供下次使用。
+        //b. 构造方法：开辟两块堆内存，一个成为垃圾。不会保存在对象池，可使用Stirng.intern 手动设置入池（共享）
+
         //part 1
         //1. "==" is compare num value
         //2. if "==" use to compare Object , then compare the Object's memory address's num value;
@@ -60,9 +70,8 @@ public class stringSample {
         //1. "equals" is use to compare String Object's content
 
         //part 3
-        //1. String.intern return 返回字符串对象的规范化表示形式。,  String will support a string pool
-        //2. if use == 分配一个或者不分配堆内存 ,
-        //   当 有多个（s、t） == "abc" ; 产生多个栈(内存地址值相同,用==比较的话为 true)指向同一堆内存
+        //1. String.intern return 返回字符串对象的规范化表示形式。 
+        //2. 当 有多个（s、t） == "abc" ; 产生多个栈(内存地址值相同,用==比较的话为 true)指向同一堆内存
         //               if and only if s.equals(t)
         //                 so s==t is true (堆内存地址值相同)
 
