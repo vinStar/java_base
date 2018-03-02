@@ -40,6 +40,11 @@ public class Main {
     public static void main(String[] args) {
 
 
+        //1. 消除结构定义上的重复[人=>工人(name,age)\学生(name,age)]
+        //2. 子类最低与父类功能相同
+        //3. 子类可对父类进行扩充
+
+
         Main.staticPrint();
         System.out.println("===after new======");
         //new Main();
@@ -103,7 +108,7 @@ class B extends A {
     //@Override
     public void Print() {
         {
-            x=1;
+            x = 1;
         }
 
         System.out.println("x=" + x + " y=" + y);
