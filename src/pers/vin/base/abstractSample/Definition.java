@@ -5,8 +5,9 @@ package pers.vin.base.abstractSample;
  */
 
 // 0. 不要出现一个类继承一个已经实现好的类
-// 1. 一个类只能继承抽象类和接口
+// 1. 一个类只能继承抽象类和接口(对比接口不灵活)
 // 2. 不能使用 final 声明 , 因为 final 不能有子类 而 抽象类必须被覆写
+// 3. 抽象类可存在非抽象类,具体实现的方法(对比接口,可做一些子类间接实现)
 
 //I. 抽象类: 在不同类的基础上添加了一些抽象方法,偏向于概念(只声明,无具体实现)
 //II. 无法实例 new ,不知道具体实现? 怎么调用呢?
@@ -15,7 +16,7 @@ package pers.vin.base.abstractSample;
 // 只允许内部 抽象类 使用 static
 abstract class A {
     public void print() {
-        System.out.println("this is method print()");
+        System.out.println("this is method print() in abstract class");
     }
 
     public A() {
@@ -51,8 +52,10 @@ public class Definition {
     public static void main(String[] args) {
         B b1 = new B();
         b1.fun();
+        b1.print();
 
         // 调用辅助类
         A.getInstance().fun();
+
     }
 }
