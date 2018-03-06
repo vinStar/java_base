@@ -1,5 +1,9 @@
 package pers.vin.base.designPattern;
 
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
+
 /**
  * Created by vin on 05/03/2018.
  */
@@ -79,6 +83,50 @@ class ProxyFactory {
 }
 
 
+/**
+ * -------------------动态代理----------------
+ * 1. 在JDK1.3之后加入了可协助开发的动态代理功能.不必为特定对象与方法编写特定的代理对象,使用动态代理,
+ * 可以使得一个处理者(Handler)服务于各个对象.
+ * 2. 一个处理者的类设计必须实现java.lang.reflect.InvocationHandler接口.
+ * 3. 通过InvocationHandler接口实现的动态代理只能代理接口的实现类.
+ */
+
+
+// 处理者
+class DynamicProxyHandler implements InvocationHandler {
+
+    Object target = null;// 真正的业务操作者
+
+    public DynamicProxyHandler(Object target) {
+        this.target = target;
+    }
+
+    @Override
+    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+
+        method.invoke(target, args);
+
+        return null;
+    }
+}
+
+//代理对象工厂
+
+
+class DynamicProxyFactory {
+
+    public static Object getInstance(Object obj) {
+
+        DynamicProxyHandler handler = new DynamicProxyHandler(obj);
+        ClassLoader classLoader = obj.getClass().getClassLoader();
+        Class<?>[] interfaces = obj.getClass().getInterfaces();
+        return Proxy.newProxyInstance(classLoader, interfaces, handler);
+
+    }
+
+}
+
+
 public class ProxySample {
 
 
@@ -89,13 +137,22 @@ public class ProxySample {
         train.buyTicket();
 
 
-        System.out.println("=================代理实现================");
+        System.out.println("=================静态 代理实现================");
 
         //2. 二班套路
         ISubjectTicket s1 = ProxyFactory.getInstance("train");
         s1.buyTicket();
         ISubjectTicket s2 = ProxyFactory.getInstance("plane");
         s2.buyTicket();
+
+        System.out.println("=================jdk 动态 代理实现================");
+
+        //3. 三班套路
+        ISubjectTicket s3 = (ISubjectTicket)
+                DynamicProxyFactory.getInstance(new RealSubjectTrainImpl());
+
+        s3.buyTicket();
+
 
     }
 }
