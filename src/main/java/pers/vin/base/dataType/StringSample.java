@@ -64,6 +64,7 @@ public class StringSample {
         //2. 两种创建字符串实例的区别
         //a. 直接赋值：匿名对象，开辟一块堆内存空间，存储在对象池，可共享，供下次使用。
         //b. 构造方法：开辟两块堆内存，一个成为垃圾。不会保存在对象池，可使用String.intern 手动设置入池（共享）
+        // 推荐：直接赋值，开辟一块堆内存
 
         //part 1
         //1. "==" is compare num value
@@ -89,5 +90,25 @@ public class StringSample {
         // "hel" 匿名对象永远不会为 null , 所以安全
 
 
+        //part 6
+        // see the .class file when compile : String str = "abcdef";
+        // and only create one object
+        String str = "abc" + "def";
+
+        //在这方面运行速度快慢为：StringBuilder > StringBuffer > String
+
+        String strQuick = "abc" + "de";
+        StringBuilder stringBuilder = new StringBuilder().append("abc").append("de");
+
+        //"abcde" String 更快一次赋值成功
+
+        //String：适用于少量的字符串操作的情况
+        //StringBuilder：适用于单线程下在字符缓冲区进行大量操作的情况
+        //StringBuffer：适用多线程下在字符缓冲区进行大量操作的情况
+
+
+        StringBuilder sb = new StringBuilder(str);
+        System.out.println(sb.deleteCharAt(0));//bcdef
+        System.out.println(str.charAt(0));
     }
 }

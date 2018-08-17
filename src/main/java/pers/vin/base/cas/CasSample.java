@@ -22,7 +22,9 @@ public class CasSample {
 //        try {
 //            java.lang.reflect.Field aField = AtomicInteger.class.getDeclaredField("value");
 //            aField.setAccessible(true);
+//            aField.set(i2,2);
 //            Object rValue = aField.get(i2);
+//
 //
 //            System.out.println("rValue is :" + rValue);
 //
